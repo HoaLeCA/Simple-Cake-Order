@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New City Bakery</title>
+    <link rel="stylesheet" href="format.css">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/e33bf080b0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo.png" alt="logo">
+                <!-- https://express.adobe.com/sp/design/post/urn:aaid:sc:US:d70f46fc-56c5-4f73-90df-2e05587a7d29 -->
+            </div>
+
+            
+            <ul class="nav-area">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+
+            </ul>
+            <div class="welcome-text">
+                <h1>New City Bakeries</h1>
+                <p>Good taste good life</p>
+                <ul class="nav-contact">
+                    <li><a href="#"><i class="fa-solid fa-phone"></i> 888-888-8888</a><a href="#"><i
+                                class="fa-solid fa-envelope"></i>hoa.le@edu.sait.ca</a></li>
+                    <li></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+    <main>
+        <h2>Please choose your order</h2><br>
+        <h5>Today is: <span id="dtfield"></span></h5><br>
+
+        <form id="orderonline" onsubmit="buttonandchecks(); return false">
+            <table id="infor">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="firstName" name="firstName" placeholder="First Name"
+                            pattern="[a-zA-Z-\s]{1,30}" required autofocus></td>
+                    <td><input type="text" id="lastName" name="lastName" placeholder="Last Name"
+                            pattern="[a-zA-Z-\s]{1,30}" required></td>
+
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <th>Postal Code</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="address" name="address" placeholder="Enter your address" required></td>
+                    <td><input type="text" id="Postal" name="Postal" placeholder="A3B A3B"
+                            pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" required></td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <th>E-mail</th>
+                </tr>
+                <tr>
+                    <td><input type="tel" id="phone_number" name="phone_number" placeholder="000-000-0000"
+                            pattern="\d{3}[\-]\d{3}[\-]\d{4}" required></td>
+                    <td><input type="email" id="email" name="email" placeholder="abc@hotmail.com"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required></td>
+                </tr>
+                <tr>
+                    <th>Select Cakes</th>
+                    <th>Number Of Layer </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="roundCakes" name="typecake" value="roundCake"
+                            onclick="roundCakesVisibility()">Round Cakes
+                        <input type="radio" id="sheetCakes" name="typecake" value="sheetCake"
+                            onclick="sheetCakesVisibility()">Sheet Cakes
+
+
+                    </td>
+                    <td><input type="number" min="1" max="3" id="number_of_layer" required></td>
+                </tr>
+
+
+                <tr>
+                    <th><b><span id="title1"></span></b></th>
+                    <th><b><span id="title2"></span></b></th>
+                </tr>
+                <tr>
+
+                    <td>
+                        <div id="roundcake">
+                            <img src="img/roundcake.jpg" alt="roundCake">
+
+                        </div>
+
+                    </td>
+                    <td>
+                        <div id="sheetcake">
+                            <img src="img/sheetcake.jpg" alt="sheetcake">
+                        </div>
+
+
+                    </td>
+                    <!-- Cake Picures Reference
+                    https://glamorganbakery.com/round-order-form
+                    https://glamorganbakery.com/slab-order-form -->
+                </tr>
+                <tr>
+
+                    <td> <input type="number" min="15" max="30" id="radiusRoundCake" name="radiusRoundCake"
+                            placeholder="Raidus (15-30cm)"></td>
+                    <td>
+                        <input type="number" min="30" max="60" id="lengthSheetCake" name="lengthSheetCake"
+                            placeholder="Length (30-60cm)">
+                        <input type="number" min="30" max="45" id="widthSheetCake" name="widthSheetCake"
+                            placeholder="Width (30-45cm)">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="creamCheese" id="option1" value="5">&nbsp; Cream Cheese
+                        icing is an extra $5</td>
+
+
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="creamCheese" id="option2" value="7">&nbsp; Fruit and
+                        Almonds topping is an extra $7</td>
+
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="creamCheese" id="option3" value="4">&nbsp; Fruit jam
+                        filling between layers is an extra $4</td>
+                </tr>
+
+
+
+
+            </table>
+
+            <input type="submit" value="Place Your Order" id="submit">
+            <p class="invoice"><b><span id="welcome"></span></b></p><br>
+            <table class="order_result" id="table">
+                
+                <tr>
+                    <td colspan="2"><span id="title_result"></span></td>
+
+                </tr>
+                <tr>
+                    <td><span id="result_items"></span></td>
+                    <td><span id="price"></span></td>
+                </tr>
+                <tr>
+
+                    <td><span id="desc_extra_cost"></span></td>
+                    <td><span id="extra_cost"></span></td>
+
+                </tr>
+                <tr>
+                    <td><b><span id="total_message"></span></b></td>
+                    <td><b><span id="total"></span></b></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><span id="thankyou"></span></td>
+                </tr>
+            </table>
+            <p></p>
+
+
+
+
+
+        </form>
+    </main>
+</body>
+
+</html>
